@@ -4,7 +4,7 @@
   <!-- SharePointCrawlBehavior => CrawlVirtualServers, CrawlSites (See http://technet.microsoft.com/en-us/library/ff607867(v=office.15).aspx) -->
   <Environment>
     <Default>
-      <ContentSource Name="IM Users" Type="Business" LOBSystemName="IM" LOBSystemInstanceName="IM" RunFullCrawl="false" />
+      <ContentSource Name="IM User" Type="Business" LOBSystemName="IM" LOBSystemInstanceName="IM" RunFullCrawl="false" />
     </Default>
   </Environment>
 </ContentSources>
