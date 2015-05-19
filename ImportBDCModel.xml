@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BDCProperties>
-  <Models>
-    <Model Name="IM User" Filename="IMUser.bdcm" />
-  </Models>
+  <Environment>
+    <Default>
+      <Models>
+        <Model Name="IM User" Namespace="IM.User" Filename="IMUser.xml" DatabaseServer="fsspe001" />
+      </Models>    
+    </Default>
+    <Production>
+      <Models>
+        <Model Name="IM User" Namespace="IM.User" Filename="IMUser.xml" DatabaseServer="???" />
+      </Models>
+    </Production>
+  </Environment>  
 </BDCProperties>

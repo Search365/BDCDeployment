@@ -20,12 +20,24 @@ try
     $siteUrl = GetSiteUrl($environment)
     $serviceContext = Get-SPServiceContext $siteUrl
     $catalog = Get-SPBusinessDataCatalogMetadataObject -BdcObjectType Catalog -ServiceContext $serviceContext
+    $models = GetXMLNodes $xmlDoc "BDCProperties" $environment "/Models/Model"
 
     # Import the models.
-    foreach ($model in $xmlDoc.BDCProperties.Models.Model)
+    foreach ($model in $models)
     {
         Import-SPBusinessDataCatalogModel -Identity $catalog -Path $($model.Filename) -Force -ErrorAction Stop
         Log "Imported BDC Model '$($model.Name)' (Filename:$($model.Filename))"
+
+        $newModel = Get-SPBusinessDataCatalogMetadataObject -Namespace $model.Namespace -Name $model.Namespace -BdcObjectType LobSystemInstance -ServiceContext $serviceContext
+
+        if ($newModel)
+        {
+            Set-SPBusinessDataCatalogMetadataObject -Identity $newModel -PropertyName "RdbConnection Data Source" -PropertyValue $model.DatabaseServer
+        }
+        else
+        {
+            LogError "Cannot find BDC Model '$($model.Name)'"
+        }
     }
 }
 catch [Exception] {
