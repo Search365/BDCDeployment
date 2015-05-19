@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentSources SearchServiceApplicationName="Fast Content Service">
+  <!-- Type => Business, O12Business, CustomRepository, Custom, Exchange, File, LotusNotes, SharePoint, TopicPages, Web, PushedContent (See http://technet.microsoft.com/en-us/library/ff607867(v=office.15).aspx) -->
+  <!-- SharePointCrawlBehavior => CrawlVirtualServers, CrawlSites (See http://technet.microsoft.com/en-us/library/ff607867(v=office.15).aspx) -->
+  <Environment>
+    <Default>
+      <ContentSource Name="IM Users" Type="Business" LOBSystemName="IM" LOBSystemInstanceName="IM" RunFullCrawl="false" />
+    </Default>
+  </Environment>
+</ContentSources>

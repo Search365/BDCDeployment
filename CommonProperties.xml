@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommonProperties>
+  <Environment>
+    <Default>
+      <Site Url="http://fsspe001/Search" />
+      <WebApplication Url="http://fsspe001" />
+      <Web Url="http://fsspe001/Search/admin" />
+    </Default>
+  </Environment>
+</CommonProperties>
