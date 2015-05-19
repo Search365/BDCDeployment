@@ -28,7 +28,7 @@ try
         Import-SPBusinessDataCatalogModel -Identity $catalog -Path $($model.Filename) -Force -ErrorAction Stop
         Log "Imported BDC Model '$($model.Name)' (Filename:$($model.Filename))"
 
-        $newModel = Get-SPBusinessDataCatalogMetadataObject -Namespace $model.Namespace -Name $model.Namespace -BdcObjectType LobSystemInstance -ServiceContext $serviceContext
+        $newModel = Get-SPBusinessDataCatalogMetadataObject -Name $($model.Name) -Namespace $($model.Namespace) -BdcObjectType LobSystemInstance -ServiceContext $serviceContext
 
         if ($newModel)
         {
