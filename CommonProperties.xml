@@ -2,9 +2,10 @@
 <CommonProperties>
   <Environment>
     <Default>
-      <Site Url="http://fsspe001/Search" />
-      <WebApplication Url="http://fsspe001" />
-      <Web Url="http://fsspe001/Search/admin" />
+      <Site Url="http://fsspe001" />
     </Default>
+    <Production>
+      <Site Url="http://fsspe001" />
+    </Production>
   </Environment>
 </CommonProperties>

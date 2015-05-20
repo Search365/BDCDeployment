@@ -3,12 +3,12 @@
   <Environment>
     <Default>
       <Models>
-        <Model Name="IM User" Namespace="IM.User" Filename="IMUser.xml" DatabaseServer="fsspe001" />
+        <Model Name="IM User" LobSystemName="IM" LobSystemInstanceName="IM" Filename="IMUser.xml" DatabaseServer="fsspe001" />
       </Models>    
     </Default>
     <Production>
       <Models>
-        <Model Name="IM User" Namespace="IM.User" Filename="IMUser.xml" DatabaseServer="???" />
+        <Model Name="IM User" LobSystemName="IM" LobSystemInstanceName="IM" Filename="IMUser.xml" DatabaseServer="???" />
       </Models>
     </Production>
   </Environment>  

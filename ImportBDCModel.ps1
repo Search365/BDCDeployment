@@ -28,15 +28,24 @@ try
         Import-SPBusinessDataCatalogModel -Identity $catalog -Path $($model.Filename) -Force -ErrorAction Stop
         Log "Imported BDC Model '$($model.Name)' (Filename:$($model.Filename))"
 
-        $newModel = Get-SPBusinessDataCatalogMetadataObject -Name $($model.Name) -Namespace $($model.Namespace) -BdcObjectType LobSystemInstance -ServiceContext $serviceContext
+        $lobSystem = Get-SPBusinessDataCatalogMetadataObject -BdcObjectType LobSystem -Name $($model.LobSystemName) -ServiceContext $serviceContext
 
-        if ($newModel)
+        if ($lobSystem)
         {
-            Set-SPBusinessDataCatalogMetadataObject -Identity $newModel -PropertyName "RdbConnection Data Source" -PropertyValue $model.DatabaseServer
+            $instance = $instance = $lobSystem.LobSystemInstances | Where-Object { $_.Name -eq $model.LobSystemInstanceName }
+
+            if ($instance)
+            {
+                Set-SPBusinessDataCatalogMetadataObject -Identity $instance -PropertyName "RdbConnection Data Source" -PropertyValue $model.DatabaseServer
+            }
+            else
+            {
+                LogError "LobSystemInstance '$($model.LobSystemInstanceName)' not found"
+            }
         }
         else
         {
-            LogError "Cannot find BDC Model '$($model.Name)'"
+            LogError "LobSystem '$($model.LobSystemName)' not found"
         }
     }
 }
