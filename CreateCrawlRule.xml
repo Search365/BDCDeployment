@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SearchProperties>
+  <ServiceName></ServiceName>
+  <Environment>
+    <Default>
+      <CrawlRules>
+        <CrawlRule Path="sitsearchconnector://*" Type="InclusionRule" AccountName="firstservis\Administrator" AuthenticationType="NTLMAccountRuleAccess" />
+      </CrawlRules>
+    </Default>
+    <Prod>
+      <CrawlRules>
+        <CrawlRule Path="sitsearchconnector://*" Type="InclusionRule" AccountName="firstservis\Administrator" AuthenticationType="NTLMAccountRuleAccess" />
+      </CrawlRules>
+    </Prod>
+  </Environment>  
+</SearchProperties>
